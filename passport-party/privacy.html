@@ -139,22 +139,43 @@
         <p class="eyebrow">Passport Party</p>
         <h1>Privacy Policy</h1>
         <p>
-          Passport Party is a local-device trivia and timing game. This page explains what the current launch build stores, what it does not collect, and how players can remove their saved data.
+          Passport Party is a trivia and timing game with on-device guest saves, live room sync, and optional in-app purchases. This page explains what the current build stores, what it sends to service providers, and how players can remove their local saved data.
         </p>
         <div class="pill-row">
           <span class="pill">No account required</span>
           <span class="pill">No analytics SDK</span>
-          <span class="pill">No ad tracking in this build</span>
+          <span class="pill">Live room sync via Supabase</span>
+          <span class="pill">Purchases via RevenueCat</span>
         </div>
       </section>
 
       <section class="grid">
         <article class="card">
-          <h2>What this app stores</h2>
+          <h2>What this app stores on your device</h2>
           <ul>
             <li>The nickname a player types into the app.</li>
-            <li>Local guest progress such as score, passport stamps, seen stops, and last saved run state.</li>
-            <li>Private-room draft details such as the room code currently shown on the device.</li>
+            <li>Guest progress such as score, passport stamps, seen stops, selected language, and last saved run state.</li>
+            <li>Local room details such as the most recent room code shown on the device.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>What this app sends to the live multiplayer backend</h2>
+          <ul>
+            <li>Your nickname and generated player ID when you create or join a live room.</li>
+            <li>The room code and lobby you joined.</li>
+            <li>Room status such as waiting, countdown, live, and finished.</li>
+            <li>Submitted answers, timing taps, stop results, and score updates.</li>
+            <li>Shared session data such as route order and room history.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Optional purchases</h2>
+          <ul>
+            <li>Passport Party uses RevenueCat to load in-app purchase products, validate purchases, restore purchases, and keep anonymous purchase status.</li>
+            <li>RevenueCat may process purchase history and an anonymous app user ID for app functionality and purchase validation.</li>
+            <li>Apple handles App Store payment details. Passport Party does not receive payment card numbers.</li>
           </ul>
         </article>
 
@@ -162,10 +183,19 @@
           <h2>What this build does not do</h2>
           <ul>
             <li>It does not require sign-in or account creation.</li>
-            <li>It does not send nickname or guest progress to Passport Party servers.</li>
-            <li>It does not use third-party analytics, advertising SDKs, or cross-app tracking in the current build.</li>
+            <li>It does not use third-party analytics SDKs, advertising SDKs, or cross-app tracking in the current build.</li>
             <li>It does not collect precise location, contacts, photos, or microphone data.</li>
           </ul>
+        </article>
+
+        <article class="card">
+          <h2>Third-party services used in this build</h2>
+          <p>
+            Supabase is used for live lobby sync, room state, and multiplayer match data.
+          </p>
+          <p>
+            RevenueCat is used for in-app purchase product loading, purchase validation, restore purchase support, and anonymous purchase status.
+          </p>
         </article>
 
         <article class="card">
@@ -179,7 +209,8 @@
           <h2>Data retention and deletion</h2>
           <ul>
             <li>Guest progress stays on the device until it is removed.</li>
-            <li>Using <strong>Reset Guest Save</strong> inside the app deletes the stored nickname and local progress.</li>
+            <li>Using <strong>Reset Guest Save</strong> inside the app deletes the stored nickname and local progress on the device.</li>
+            <li>Live room and match rows already written to the multiplayer backend are not removed by <strong>Reset Guest Save</strong>.</li>
             <li>Deleting the app also removes any remaining local app data from the device.</li>
           </ul>
         </article>
@@ -201,7 +232,7 @@
       </section>
 
       <div class="footer">
-        Last updated: April 27, 2026. This page is designed to be hosted as a public HTTPS URL for App Store Connect.
+        Last updated: May 14, 2026. This page is designed to be hosted as a public HTTPS URL for App Store Connect.
       </div>
     </main>
   </body>
